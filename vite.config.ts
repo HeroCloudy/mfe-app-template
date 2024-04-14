@@ -10,6 +10,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  envDir: './env',
   plugins: [
     vue(),
     vueJsx(),
@@ -32,6 +33,16 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  server: {
+    hmr: true,
+    proxy: {
+      '/scrm-api': {
+        target: 'https://xxx',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/scrm-api/, '')
+      }
     }
   }
 })
