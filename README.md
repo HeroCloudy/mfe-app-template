@@ -122,3 +122,11 @@ AutoImport({
 - scss 目录下创建 main.scss 和 var.scss，并在 main.scss 中引入 var
 - 在main.ts 中引入 main.scss
 - 在var.scss 中配置变量的值
+
+
+## 7 store 全局配置
+```bash
+pnpm add pinia-plugin-persistedstate
+```
+
+创建 stores/index.ts
